@@ -8,6 +8,9 @@ export default function App(){
   function next(){
     setId(id + 1)
   }
+  function prev(){
+    setId(id -1)
+  }
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
       .then((response) => response.json())
@@ -30,6 +33,9 @@ export default function App(){
         style={styles.image} />
       <TouchableOpacity onPress={()=>{next()}} style={styles.btn}>
         <Text style={styles.btntxt}>Proximo</Text>
+      </TouchableOpacity>
+       <TouchableOpacity onPress={()=>{prev()}} style={styles.btn}>
+        <Text style={styles.btntxt}>Anterior</Text>
       </TouchableOpacity>
       <Text style={styles.txt}>Numero da pokedex: {id}</Text>
     </View>
